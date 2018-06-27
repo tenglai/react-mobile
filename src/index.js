@@ -1,8 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+/**
+ * 项目入口文件
+ */
+import 'babel-polyfill'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+import React from 'react'
+import { render } from 'react-dom'
+import { connect, Provider } from 'react-redux'
+import store ,{history} from './store'
+import { ConnectedRouter } from 'react-router-redux'
+import { Route, Switch } from 'react-router-dom'
+
+import BaseLayout from './layouts/BaseLayout'
+
+import './index.css'; 
+
+render(
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <Switch>
+       <Route path="/"  component={BaseLayout} />
+      </Switch>
+    </ConnectedRouter>
+  </Provider>,
+  document.getElementById('root')
+)
