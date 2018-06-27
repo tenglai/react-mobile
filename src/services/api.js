@@ -2,12 +2,32 @@
  * 服务
  */
 import axios from 'axios'
-import {banner} from '../mock/data'
+require('../mock/data');
 
+/**
+ * 轮播图
+ */
 export async function getBanners(){
   return axios.get('/api/banner');
 }
 
+/**
+ * 捷径
+ */
+export async function getShortcutList(){
+  return axios.get('/api/shortcut')
+}
+
+/**
+ * 产品列表
+ */
+export async function getproduct_1(){
+  return axios.get('/api/products_1')
+}
+
+/**
+ * 登录
+ */
 export async function login(param) {
   const {username,password,type} = param;
 

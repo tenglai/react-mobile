@@ -3,9 +3,9 @@ const initstate = {
   data:[]
 }
 
-function bannerRedux(state=initstate,{type,payload}){
+function shortCutRedux(state=initstate,{type,payload}){
   switch(type){
-    case 'getBannerListRedux':
+    case 'getShortcutReduxList':
       return {
         ...state,
         data:payload
@@ -15,4 +15,4 @@ function bannerRedux(state=initstate,{type,payload}){
   }
 }
 
-export default bannerRedux;
+export default shortCutRedux;
