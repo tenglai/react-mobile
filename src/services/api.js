@@ -26,6 +26,13 @@ export async function getproduct_1(){
 }
 
 /**
+ * 请求购物车数据
+ */
+export async function getHShopCar(){
+  return axios.get('/api/getshopcar')
+}
+
+/**
  * 请求登录数据
  */
 export async function login(param) {

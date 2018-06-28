@@ -4,6 +4,8 @@
 import React, {PureComponent} from 'react';
 import classNames from 'classnames';
 import Styles from './index.less';
+// 引入 购物车 组件
+import HomeShopcar from '../../routes/Home/homeShopcar';
 
 class Popup extends PureComponent {
   // 构造函数
@@ -27,9 +29,7 @@ class Popup extends PureComponent {
         <div
           className={classNames(Styles.wx_popup,Styles.wx_content_bottom)}
           style={{"display": flag ? "none" :"block" }}>
-          {
-            <div>内容部分</div>
-          }
+          <HomeShopcar />
         </div>
         <div
           onClick={this.closeMe}

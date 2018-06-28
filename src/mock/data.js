@@ -16,12 +16,14 @@ import p5 from '../assets/p5.jpg'
 
 const Random = Mock.Random;
 
+// 轮播图 数据
 const banner= Mock.mock('/api/banner',[
   banner1,
   banner2,
   banner3,
 ])
 
+// 快捷链接 数据
 const shortcut = Mock.mock('/api/shortcut',[
   {
     url:"",
@@ -41,6 +43,7 @@ const shortcut = Mock.mock('/api/shortcut',[
   },
 ])
 
+// 商品列表 数据
 const products_1 = Mock.mock('/api/products_1',[
   {
     url:'',
@@ -74,8 +77,26 @@ const products_1 = Mock.mock('/api/products_1',[
   },
 ])
 
+// 购物车 数据
+const addShopcar = Mock.mock('/api/getshopcar',{
+  "id|1000-2000":1,
+  "title":'熊猫有礼  健康无添加  小孩可以放心吃的猪肉丝  香酥猪肉松&黄金猪肉丝',
+  "imgsrc":p1,
+  "data|4":[
+    {
+      "sepc|1":[
+        "黄金猪肉丝98g+香酥猪肉松108g",
+        "黄金猪肉丝98g",
+        "香酥猪肉松108g"
+      ],
+      "price|20-30.2":1,
+    }
+  ],
+})
+
 export {
   banner,
   shortcut,
   products_1,
+  addShopcar,
 }

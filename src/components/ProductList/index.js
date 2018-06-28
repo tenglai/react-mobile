@@ -22,12 +22,16 @@ class ProductList extends PureComponent {
       type:'openPopup'
     })
 
+    // 获取购物车数据
+    this.props.dispatch({
+      type:'getHomeShopcarSaga'
+    })
+
     return false;
   }
 
   render(){
     const {data} = this.props;
-    const content = (<div>44444444</div>);
 
     return (
       // 商品列表

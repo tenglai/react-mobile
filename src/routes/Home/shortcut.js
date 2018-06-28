@@ -1,3 +1,6 @@
+/**
+ * 快捷链接
+ */
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 

@@ -31,7 +31,7 @@ class Home extends PureComponent {
         <SearchProduct text={"搜索商品"} />
         <ImageAd imgurl="" imgsrc={ad1} /> 
         <ProductList />
-        <Popup  dispatch = {dispatch}  flag={homePopup} />
+        <Popup dispatch={dispatch}  flag={homePopup} />
       </div>
     )
   }
@@ -39,6 +39,6 @@ class Home extends PureComponent {
 
 export default  connect(({globalRedux})=>{
   return {
-    homePopup:globalRedux.homePopup
+    homePopup:globalRedux.homePopup,
   }
 })(Home)
