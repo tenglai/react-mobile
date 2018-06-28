@@ -6,19 +6,30 @@ import classNames from 'classnames';
 import Styles from './index.less';
 
 class Popup extends PureComponent {
+  // 构造函数
+  constructor(props) {
+    super(props);
+  }
+
+  // 遮罩层 点击事件
   closeMe=()=>{
-    this.props.onclose();
+    // 显示弹出窗
+    this.props.dispatch({
+      type:'closePopup'
+    })
   }
 
   render(){
-    const {flag,content} = this.props;
+    const {flag} = this.props;
 
     return(
       <div>
         <div
           className={classNames(Styles.wx_popup,Styles.wx_content_bottom)}
           style={{"display": flag ? "none" :"block" }}>
-          {content}
+          {
+            <div>内容部分</div>
+          }
         </div>
         <div
           onClick={this.closeMe}

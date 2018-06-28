@@ -43,6 +43,7 @@ class WxTabBar extends PureComponent {
                       {/* <sup className="am-badge-text">1</sup> */}
                     </span>
                   </div>
+                  <p className="am-tab-bar-tab-title" style={{color: this.state.selectedTab == item.key?item.tintColor:item.unselectedTintColor}}>{item.name}</p>
                 </Link>
               </div>
             ))

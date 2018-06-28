@@ -12,23 +12,17 @@ import Popup from '../../components/Popup';
 import scar from '../../assets/scar.svg';
 
 class ProductList extends PureComponent {
-  constructor(props){
-    super(props)
-    this.state = {
-      hidden:true,
-    }
+  state = {
+    hidden:false
   }
 
   clickShopCar = (index)=>{
-    this.setState({
-      hidden:!this.state.hidden,
+    // 显示弹出窗
+    this.props.dispatch({
+      type:'openPopup'
     })
-  }
 
-  closePopu = () =>{
-    this.setState({
-      hidden:!this.state.hidden,
-    })
+    return false;
   }
 
   render(){
@@ -38,34 +32,32 @@ class ProductList extends PureComponent {
     return (
       // 商品列表
       <div className={Styles.list_container}>
-          <div className={Styles.list_warper}>
-            <ul>
-              {
-                data.map((item,index)=>(
-                  <li key={index}>
-                    <Link to={item.url} >
-                      <div>
-                        <img src={item.imgsrc} />
-                      </div>
-                      <div className={Styles.title_warper}>
-                        <p>{item.title}</p>
-                      </div>
-                      <div className={Styles.price_warper}>
-                        <p><em>¥ {item.price}</em></p>
-                        <div className={Styles.shop_cart}>
-                          <div className={Styles.cap_goods_list__buy_btn}>
-                            <img onClick={this.clickShopCar.bind(this,index)}  className={Styles.scimg} src={scar} />
-                          </div>
+        <div className={Styles.list_warper}>
+          <ul>
+            {
+              data.map((item,index)=>(
+                <li key={index}>
+                  <div className={Styles.pwarper}>
+                    <div>
+                      <img src={item.imgsrc} />
+                    </div>
+                    <div className={Styles.title_warper}>
+                      <p>{item.title}</p>
+                    </div>
+                    <div className={Styles.price_warper}>
+                      <p><em>¥ {item.price}</em></p>
+                      <div className={Styles.shop_cart}>
+                        <div className={Styles.cap_goods_list__buy_btn}>
+                          <img onClick={this.clickShopCar.bind(this,index)}  className={Styles.scimg} src={scar} />
                         </div>
                       </div>
-                    </Link>
-                  </li>
-                ))
-              }                
-            </ul>
-          </div>
-
-          <Popup content={content} onclose={this.closePopu} flag={this.state.hidden} />
+                    </div>
+                  </div>
+                </li>
+              ))
+            }                
+          </ul>
+        </div>
       </div>
     )
   }
