@@ -1,8 +1,11 @@
-import { put,takeEvery,fork,all } from 'redux-saga/effects'
-import globalSaga from './globalSaga'
-import bannerSaga from './bannerSaga'
-import shortcutSaga from './shortcutSaga'
-import productSaga from './productSaga'
+/**
+ * redux 异步入口文件
+ */
+import { put,takeEvery,fork,all } from 'redux-saga/effects';
+import globalSaga from './globalSaga';
+import bannerSaga from './home/bannerSaga';
+import shortcutSaga from './home/shortcutSaga';
+import productSaga from './home/productSaga';
 
 // 所有saga的入口配置文件
 const config = [

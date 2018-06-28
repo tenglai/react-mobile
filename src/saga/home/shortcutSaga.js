@@ -1,5 +1,8 @@
+/**
+ * 快捷链接 异步数据
+ */
 import { put,takeLatest,call,select } from 'redux-saga/effects'
-import {getShortcutList} from '../services/api'
+import {getShortcutList} from '../../services/api'
 
 function* getShortcutSagaList(){
   const res = yield call(getShortcutList)

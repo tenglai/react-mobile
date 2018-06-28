@@ -13,7 +13,7 @@ import {getRouterData} from '../common/router';
 
 import Styles from './BaseLayout.less';
 // 首页
-import Home from '../routes/home';
+import Home from '../routes/Home/home';
 // 底部 tabbar
 import WxTabBar from '../components/TabBar';
 

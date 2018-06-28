@@ -1,23 +1,23 @@
 /**
  * 主页
  */
-import React ,{PureComponent} from 'react'
-import {connect} from 'react-redux'
+import React ,{PureComponent} from 'react';
+import {connect} from 'react-redux';
 // 轮播图
-import Banner from '../routes/banner'
+import Banner from '../../routes/Home/banner'; // 相对位置 返回src层 -- 再找回来
 // 快捷链接
-import ShortCut from '../routes/shortcut'
+import ShortCut from '../../routes/Home/shortcut';
 // 商品搜索框 组件
-import SearchProduct from '../components/SearchProduct'
+import SearchProduct from '../../components/SearchProduct';
 // 广告图片 组件
-import ImageAd from '../components/ImageAd'
-import Popup from '../components/Popup'
+import ImageAd from '../../components/ImageAd';
+import Popup from '../../components/Popup';
 // 广告图片
-import ad1 from '../assets/ad1.jpg'
+import ad1 from '../../assets/ad1.jpg';
 
-import {menuData} from '../common/menu'
+import {menuData} from '../../common/menu';
 // 商品列表
-import ProductList from '../routes/productList'
+import ProductList from '../../routes/Home/productList';
 import { width } from 'window-size';
 
 class Home extends PureComponent {

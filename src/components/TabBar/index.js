@@ -1,5 +1,5 @@
 /**
- * TabBar
+ * TabBar 组件
  */
 import React ,{ PureComponent } from 'react';
 import classNames from 'classnames';

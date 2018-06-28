@@ -1,6 +1,9 @@
-import React,{PureComponent} from 'react'
+/**
+ * 轮播图
+ */
+import React,{PureComponent} from 'react';
 import { Carousel } from 'antd-mobile';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 
 /**
  *  banner

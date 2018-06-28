@@ -1,8 +1,11 @@
-import React ,{PureComponent} from 'react'
+/**
+ * 商品列表
+ */
+import React ,{ PureComponent } from 'react';
 
-import {default as Products} from '../components/ProductList'
+import {default as Products} from '../../components/ProductList';
 
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 
 
 class ProductList extends PureComponent{

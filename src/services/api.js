@@ -1,32 +1,32 @@
 /**
- * 服务
+ * api 请求
  */
 import axios from 'axios'
 require('../mock/data');
 
 /**
- * 轮播图
+ * 请求轮播图数据
  */
 export async function getBanners(){
   return axios.get('/api/banner');
 }
 
 /**
- * 捷径
+ * 请求快捷链接数据
  */
 export async function getShortcutList(){
   return axios.get('/api/shortcut')
 }
 
 /**
- * 产品列表
+ * 请求产品列表数据
  */
 export async function getproduct_1(){
   return axios.get('/api/products_1')
 }
 
 /**
- * 登录
+ * 请求登录数据
  */
 export async function login(param) {
   const {username,password,type} = param;

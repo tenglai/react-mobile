@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 
-import { default as ShortCutComponent} from '../components/ShortCut'
+import { default as ShortCutComponent} from '../../components/ShortCut';
 
 /**
  * 首页中部快捷按钮组件

@@ -1,5 +1,5 @@
 /**
- * 引入 tabbar 图片
+ * 菜单栏 数据
  */
 // 主页
 import home1 from '../assets/home1.png'
