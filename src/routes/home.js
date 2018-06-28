@@ -21,7 +21,7 @@ import { width } from 'window-size';
 export default class Home extends PureComponent{
   render(){
     return (
-      <div style={{width:"100%"}}>
+      <div style={{ "height": "100%","overflow": "scroll"}}>
         <Banner />
         <ShortCut />
         <SearchProduct text={"搜索商品"} />
