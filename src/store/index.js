@@ -1,12 +1,18 @@
 /**
  * store
  */
-import createSagaMiddleware from 'redux-saga'
-import createHistory from 'history/createBrowserHistory'
-import { createStore, applyMiddleware, compose } from 'redux'
-import { routerMiddleware } from 'react-router-redux'
-import reducer from '../redux/index'
-import  rootSaga from '../saga/index'
+import createSagaMiddleware from 'redux-saga';
+import createHistory from 'history/createBrowserHistory';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { routerMiddleware } from 'react-router-redux';
+/**
+ * 同步 redux
+ */
+import reducer from '../redux/index';
+/**
+ * 异步 redux
+ */
+import  rootSaga from '../saga/index';
 
 const history = createHistory()
 

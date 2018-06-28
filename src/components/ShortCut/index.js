@@ -1,5 +1,8 @@
+/**
+ * 快捷链接 组件
+ */
 import React,{PureComponent} from 'react'
-
+// 路由跳转
 import {Link} from 'react-router-dom'
 
 import Styles from './index.less'

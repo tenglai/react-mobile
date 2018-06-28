@@ -1,9 +1,12 @@
+/**
+ * 商品列表 组件
+ */
 import React,{ PureComponent } from 'react'
 
 import {Link} from 'react-router-dom'
 
 import Styles from './index.less'
-
+// 购物车 背景图
 import scar from '../../assets/scar.svg'
 
 class ProductList extends PureComponent {

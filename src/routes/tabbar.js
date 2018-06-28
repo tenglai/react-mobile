@@ -1,7 +1,12 @@
-import React ,{PureComponent} from 'react'
+/**
+ * 底部 tabbar
+ */
+import React ,{PureComponent} from 'react';
+// 引入 antd-mobile
 import { TabBar } from 'antd-mobile';
 
 class WxTabBar extends PureComponent {
+  // 构造器
   constructor(props) {
     super(props);
     this.state = {
@@ -10,7 +15,7 @@ class WxTabBar extends PureComponent {
       fullScreen: false,
     };
   }
-    
+  // 内容部分
   renderContent(pageText) {
     return (
       <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>

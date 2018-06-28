@@ -1,3 +1,6 @@
+/**
+ * 商品搜索框 组件
+ */
 import React,{PureComponent} from 'react'
 import Styles from './index.less'
 import buttonimg from '../../assets/search_icon_2.png'
