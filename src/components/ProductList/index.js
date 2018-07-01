@@ -27,6 +27,9 @@ class ProductList extends PureComponent {
       type:'getHomeShopcarSaga'
     })
 
+    var _body = document.getElementsByTagName("body")
+    _body[0].style.overflow="hidden";
+
     return false;
   }
 

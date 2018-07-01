@@ -2,6 +2,7 @@
  * 主页
  */
 import React ,{PureComponent} from 'react';
+import classNames from 'classnames';
 import {connect} from 'react-redux';
 // 轮播图
 import Banner from '../../routes/Home/banner'; // 相对位置 返回src层 -- 再找回来
@@ -19,13 +20,14 @@ import {menuData} from '../../common/menu';
 // 商品列表
 import ProductList from '../../routes/Home/productList';
 import { width } from 'window-size';
+import Styles from '../../index.css';
 
 class Home extends PureComponent {
   render(){
     const {homePopup,dispatch}  = this.props;
 
     return (
-      <div style={{ "height": "100%","overflow": "scroll"}}>
+      <div style={{ "height": "100%"}}>
         <Banner />
         <ShortCut />
         <SearchProduct text={"搜索商品"} />

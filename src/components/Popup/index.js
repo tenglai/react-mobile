@@ -8,19 +8,6 @@ import Styles from './index.less';
 import HomeShopcar from '../../routes/Home/homeShopcar';
 
 class Popup extends PureComponent {
-  // 构造函数
-  constructor(props) {
-    super(props);
-  }
-
-  // 遮罩层 点击事件
-  closeMe=()=>{
-    // 显示弹出窗
-    this.props.dispatch({
-      type:'closePopup'
-    })
-  }
-
   render(){
     const {flag} = this.props;
 
@@ -32,7 +19,6 @@ class Popup extends PureComponent {
           <HomeShopcar />
         </div>
         <div
-          onClick={this.closeMe}
           className={Styles.wx_modal}
           style={{"display": flag ? "none" :"block" }}>
         </div>
