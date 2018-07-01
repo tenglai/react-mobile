@@ -3,10 +3,18 @@
  */
 import React,{ PureComponent } from 'react';
 
-import Tloader from '../../components/ReactTouchLoader';
+import Tloader from '../../components/Tloader';
 // import Tloader from 'react-touch-loader';
 
-import './classify.less';
+import Styles from './classify.less';
+
+// 设置视图滚动区域
+let mainStyle = {
+  flex: 1,
+  overflowX:'hidden',
+  overflowY:'scroll',
+  overflowScrolling:'touch'
+}
 
 class Classify extends PureComponent {
   // 构造函数
@@ -27,33 +35,34 @@ class Classify extends PureComponent {
         hasMore: 1,
         initializing: 2, // initialized
       });
-    }, 2e3);
+    }, 2000);
   }
 
   // 下拉刷新
   refresh(resolve, reject) {
-    console.log(1);
+    console.log('下拉刷新');
     setTimeout(() => {
       this.setState({
         listLen: 9,
         hasMore: 1
       });
       resolve();
-    }, 2e3);
+    }, 2000);
   }
 
   // 上拉加载更多
   loadMore(resolve) {
+    console.log('上拉加载更多');
     setTimeout(() => {
       var l = this.state.listLen + 9;
 
       this.setState({
         listLen: l,
-        hasMore: l > 0 && l < 50
+        hasMore: l > 0 && l < 50 // 决定是否能够执行loadMore
       });
 
       resolve();
-    }, 2e3);
+    }, 2000);
   }
 
   render() {
@@ -71,8 +80,9 @@ class Classify extends PureComponent {
       }
     }
     return (
-      <div className="view">
-        <Tloader className="main"
+      <div className={Styles.view}>
+        <Tloader
+          classStyle={mainStyle}
           onRefresh={(resolve, reject) => this.refresh(resolve, reject)}
           onLoadMore={(resolve) => this.loadMore(resolve)}
           hasMore={hasMore}

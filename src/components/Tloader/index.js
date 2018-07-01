@@ -2,8 +2,9 @@
  * 下拉刷新/上拉加载更多 组件
  */
 import React from 'react';
-import './index.less';
-
+import classNames from 'classnames';
+import Styles from './index.less';
+// 状态
 const STATS = {
   init: '',
   pulling: 'pulling',
@@ -15,9 +16,10 @@ const STATS = {
   loading: 'loading'// loading more
 };
 
-// pull to refresh
-// tap bottom to load more
+// 下拉刷新
+// 点击底部加载更多
 class Tloader extends React.Component {
+  // 构造函数
   constructor() {
     super();
     this.state = {
@@ -26,12 +28,13 @@ class Tloader extends React.Component {
       progressed: 0
     };
   }
-
+  // 设置初始化触摸
   setInitialTouch(touch) {
     this._initialTouch = {
       clientY: touch.clientY
     };
   }
+  // 计算距离
   calculateDistance(touch) {
     return touch.clientY - this._initialTouch.clientY;
   }
@@ -45,10 +48,11 @@ class Tloader extends React.Component {
 
     return c * Math.sin(t / d * (Math.PI / 2)) + b;
   }
+  // 判断是否可以刷新
   canRefresh() {
     return this.props.onRefresh && [STATS.refreshing, STATS.loading].indexOf(this.state.loaderState) < 0;
   }
-
+  // 开始滑动
   touchStart(e) {
     if (!this.canRefresh()) return;
     if (e.touches.length == 1) this._initialTouch = {
@@ -56,6 +60,7 @@ class Tloader extends React.Component {
       scrollTop: this.refs.panel.scrollTop
     };
   }
+  // 滑动中
   touchMove(e) {
     if (!this.canRefresh()) return;
     var scrollTop = this.refs.panel.scrollTop;
@@ -77,6 +82,7 @@ class Tloader extends React.Component {
       });
     }
   }
+  // 结束滑动
   touchEnd() {
     if (!this.canRefresh()) return;
     var endState = {
@@ -104,7 +110,7 @@ class Tloader extends React.Component {
       });
     } else this.setState(endState);// reset
   }
-
+  // 加载更多
   loadMore() {
     this.setState({ loaderState: STATS.loading });
     this.props.onLoadMore(() => {
@@ -112,6 +118,7 @@ class Tloader extends React.Component {
       this.setState({ loaderState: STATS.init });
     });
   }
+  // 滚动
   onScroll(e) {
     if (
       this.props.autoLoadMore &&
@@ -130,6 +137,7 @@ class Tloader extends React.Component {
       progressed: 0 // reset progress animation state
     });
   }
+  // 动画结束
   animationEnd() {
     var newState = {};
 
@@ -138,14 +146,16 @@ class Tloader extends React.Component {
 
     this.setState(newState);
   }
+
+  // 页面渲染
   render() {
-    const { className, hasMore, initializing } = this.props;
+    const { classStyle, hasMore, initializing } = this.props;
     const { loaderState, pullHeight, progressed } = this.state;
 
     var footer = hasMore ? (
-      <div className="tloader-footer">
-        <div className="tloader-btn" onClick={e => this.loadMore(e)} />
-        <div className="tloader-loading"><i className="ui-loading" /></div>
+      <div className={Styles.tloader_footer}>
+        <div className={Styles.tloader_btn} onClick={e => this.loadMore(e)} />
+        <div className={Styles.tloader_loading}><i className={Styles.ui_loading} /></div>
       </div>
     ) : null;
 
@@ -155,24 +165,26 @@ class Tloader extends React.Component {
 
     var progressClassName = '';
     if (!progressed) {
-      if (initializing > 0) progressClassName += ' tloader-progress';
-      if (initializing > 1) progressClassName += ' ed';
+      if (initializing > 0) progressClassName += 'tloader_progress';
+      if (initializing > 1) progressClassName += 'ed';
     }
 
     return (
-      <div ref="panel"
-        className={`tloader state-${loaderState} ${className}${progressClassName}`}
+      <div
+        ref="panel"
+        className={classNames(Styles['tloader'],Styles[`state_${loaderState}`],Styles[`${progressClassName}`])}
+        style={classStyle}
         onScroll={e => this.onScroll(e)}
         onTouchStart={e => this.touchStart(e)}
         onTouchMove={e => this.touchMove(e)}
         onTouchEnd={e => this.touchEnd(e)}
         onAnimationEnd={e => this.animationEnd(e)}>
 
-        <div className="tloader-symbol">
-          <div className="tloader-msg"><i /></div>
-          <div className="tloader-loading"><i className="ui-loading" /></div>
+        <div className={Styles.tloader_symbol}>
+          <div className={Styles.tloader_msg}><i /></div>
+          <div className={Styles.tloader_loading}><i className={Styles.ui_loading} /></div>
         </div>
-        <div className="tloader-body" style={style}>{this.props.children}</div>
+        <div className={Styles.tloader_body} style={style}>{this.props.children}</div>
         {footer}
       </div>
     );
