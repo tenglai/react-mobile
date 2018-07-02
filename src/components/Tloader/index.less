@@ -12,6 +12,7 @@
 @refreshedMsg: '刷新成功';
 @loadingMsg: '正在加载...';
 @btnLoadMore: '点击加载更多';
+@btnLoadNoMore: '没有更多';
 @transition_duration: .2s;
 
 .tloader_msg:after{
@@ -35,7 +36,9 @@
 .tloader_btn:after{
   content: @btnLoadMore;
 }
-
+.tloader_no_more:after{
+  content: @btnLoadNoMore;
+}
 
 .tloader{
   position: relative;
@@ -192,6 +195,12 @@
       display: none;
     }
   }
+}
+.tloader_no_more{
+  color: @btnColor;
+  font-size: .9em;
+  text-align: center;
+  line-height: 3rem;
 }
 
 .tloader_loading{

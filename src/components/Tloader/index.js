@@ -157,7 +157,7 @@ class Tloader extends React.Component {
         <div className={Styles.tloader_btn} onClick={e => this.loadMore(e)} />
         <div className={Styles.tloader_loading}><i className={Styles.ui_loading} /></div>
       </div>
-    ) : null;
+    ) : (<div className={Styles.tloader_no_more}></div>);
 
     var style = pullHeight ? {
       WebkitTransform: `translate3d(0,${pullHeight}px,0)`
