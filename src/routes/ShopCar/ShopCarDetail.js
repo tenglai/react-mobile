@@ -3,6 +3,8 @@
  */
 import React,{ PureComponent } from 'react';
 import { NavBar, Icon } from 'antd-mobile';
+// Table
+import Table from '../../components/Table';
 import './ShopCar.less';
 
 class ShopCarDetail extends PureComponent {
@@ -26,6 +28,8 @@ class ShopCarDetail extends PureComponent {
           icon={<Icon type="left" />}
           onLeftClick={() => this.goBack()}
         >详情</NavBar>
+        {/*表格*/}
+        <Table />
       </div>
     )
   }
