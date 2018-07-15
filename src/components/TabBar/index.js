@@ -13,7 +13,8 @@ import home1 from '../../assets/home1.png';
 
 class WxTabBar extends PureComponent {
   state = {
-    selectedTab: 'home'
+    selectedTab: 'home',
+    hidden: false
   }
 
   changeTab = (tab) => {
@@ -22,9 +23,24 @@ class WxTabBar extends PureComponent {
     })
   }
 
+  // 监听 props 的变化
+  componentWillReceiveProps(nextProps){
+    let pathName = nextProps.location.pathname;
+    if(pathName === '/home' || pathName === '/classify' || pathName === '/shopCar' || pathName === '/me'){
+      this.setState({
+        hidden:false,
+        selectedTab:pathName.substring(1)
+      });
+    }else{
+      this.setState({
+        hidden:true
+      });
+    }
+  }
+
   render(){
     return (
-      <div className={classNames({
+      <div style={{'display': this.state.hidden ? 'none' : 'block'}} className={classNames({
         'am-tabs-tab-bar-wrap':true,
       },Styles.container)}>
         <div className="am-tab-bar-bar" style={{backgroundColor:"white"}}>

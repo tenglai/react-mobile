@@ -5,7 +5,7 @@ import React, {PureComponent} from 'react';
 import classNames from 'classnames';
 import Styles from './index.less';
 // 引入 购物车 组件
-import HomeShopcar from '../../routes/Home/homeShopcar';
+import HomeShopcar from '../../routes/Home/HomeShopCar';
 
 class Popup extends PureComponent {
   render(){

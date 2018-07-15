@@ -6,7 +6,7 @@ import React,{ PureComponent } from 'react';
 import Tloader from '../../components/Tloader';
 // import Tloader from 'react-touch-loader';
 
-import Styles from './classify.less';
+import Styles from './Classify.less';
 
 // 设置视图滚动区域
 let mainStyle = {

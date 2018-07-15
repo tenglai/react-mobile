@@ -13,7 +13,7 @@ import {getRouterData} from '../common/router';
 
 import Styles from './BaseLayout.less';
 // 首页
-import Home from '../routes/Home/home';
+import Home from '../routes/Home/Home';
 // 底部 tabbar
 import WxTabBar from '../components/TabBar';
 
@@ -46,8 +46,8 @@ class BaseLayout extends PureComponent{
 
   render(){
     const bashRedirect = this.getBashRedirect();
-    const { match } = this.props;
-    console.log(match);
+    // const { match } = this.props;
+    // console.log(match);
 
     return (
       <div>
@@ -59,7 +59,7 @@ class BaseLayout extends PureComponent{
           }
           <Redirect exact from="/" to={bashRedirect} />
         </Switch>
-        <WxTabBar />
+        <WxTabBar {...this.props} />
       </div>
     )
   }

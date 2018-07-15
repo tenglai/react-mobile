@@ -38,8 +38,8 @@ const menuData = [
   },
   {
     name:'购物车',
-    key:'shopcar',
-    path:'/shopcar',
+    key:'shopCar',
+    path:'/shopCar',
     icon: shopcar1,
     selectedIcon:shopcar2,
     unselectedTintColor:"#949494",
